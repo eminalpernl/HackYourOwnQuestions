@@ -1,12 +1,11 @@
-`TODO: Add a nice screenshot of the app!`
-
-# Class XX final project
+![Hack Your Questions](https://i.imgur.com/3P3IXIp.jpg "Hack Your Questions")
+# Class 42 - Team A final project
 
 This is the final project for the HackYourFuture curriculum we did as a class using the MERN stack by following the agile methodology with our team and a group of mentors. A quick guide to what we built:
 
-> TODO: Add short description of the app
+> Hack Your Questions (or HYQ for short) is a blog for Hack Your Future where the user can post a question or answer one, with the ability to edit and delete him/her own questions/answers and report others. Reported questions or answers appear on the admin panel along with the owner email and how many times this post has been reported, where the admin can reach the owner through email or delete the question/answer. If a user deleted their account, the questions and answers remain in the database with "deleted user" user, but when a question is deleted, all its answers are deleted as well.
 
-`[Click here for the Demo version](TODO: add link)`
+[Click here for the Demo version](https://c42-team-a.herokuapp.com/)
 
 ## 1. Setup
 
@@ -107,6 +106,9 @@ For more information on how these work together including the automatic deployme
 - `jest` || To run our tests and coverage. See [docs](https://jestjs.io/)
 - `jest-fetch-mock` || To mock out the backend for our testing purposes. See [docs](https://github.com/jefflau/jest-fetch-mock#readme)
 - `prop-types` || To type-check our components. See [docs](https://github.com/facebook/prop-types)
+- `React Bootstrap` || To add React components with built-in Bootstrap style. See [docs](https://react-bootstrap.github.io/docs/getting-started/introduction)
+- `React quill` || To add rich text editor. See [docs](https://www.npmjs.com/package/react-quill)
+- `React share` || To add social media share buttons and share counts for React [docs](https://www.npmjs.com/package/react-share)
 
 ### 3.3 Server-side libraries
 
@@ -116,3 +118,4 @@ For more information on how these work together including the automatic deployme
 - `mongodb-memory-server` || To mock out our database in our backend tests. See [docs](https://github.com/nodkz/mongodb-memory-server)
 - `cors` || To open up our API. See [docs](https://github.com/expressjs/cors#readme)
 - `mongoose` || To add schemas to our database. See [docs](https://mongoosejs.com/)
+- `NODEMAILER` || To send email sending. See [docs](https://nodemailer.com/about/)

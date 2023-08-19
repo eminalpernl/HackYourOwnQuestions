@@ -53,7 +53,12 @@ const useFetch = (route, onReceived) => {
       // We add the /api subsection here to make it a single point of change if our configuration changes
       const url = `${process.env.BASE_SERVER_URL}/api${route}`;
 
-      const res = await fetch(url, { ...baseOptions, ...options, signal });
+      const res = await fetch(url, {
+        ...baseOptions,
+        ...options,
+        signal,
+        credentials: "include",
+      });
 
       if (!res.ok) {
         setError(
@@ -68,12 +73,7 @@ const useFetch = (route, onReceived) => {
       if (jsonResult.success === true) {
         onReceived(jsonResult);
       } else {
-        setError(
-          jsonResult.msg ||
-            `The result from our API did not have an error message. Received: ${JSON.stringify(
-              jsonResult
-            )}`
-        );
+        setError(jsonResult.msg || `${JSON.stringify(jsonResult.message)}`);
       }
 
       setIsLoading(false);
