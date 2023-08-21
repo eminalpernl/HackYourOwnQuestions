@@ -64,7 +64,7 @@ function NavScroll() {
         <Container className="d-flex justify-content-between">
           <Navbar.Brand className="align-text-top fs-1 fw-bold text-info">
             <Nav.Link as={Link} to="/landing-page" href="#action1">
-              &lt;HYQ/&gt;
+              &lt;HYOQ/&gt;
             </Nav.Link>
           </Navbar.Brand>
           <div className="w-50">

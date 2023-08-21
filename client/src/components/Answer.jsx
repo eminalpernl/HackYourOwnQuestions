@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 import useFetch from "../hooks/useFetch";
 import Modal from "react-bootstrap/Modal";
 import { useAuthContext } from "../hooks/useAuthContext";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
 
 const Answer = ({ questionAnswers, answerDate, userData, answerId }) => {
   const [smShow, setSmShow] = useState(false);
@@ -123,11 +125,11 @@ const Answer = ({ questionAnswers, answerDate, userData, answerId }) => {
         <Card.Body>
           {isAnswerEditing ? (
             <>
-              <textarea
-                className="from-control m-3 w-75"
+              <ReactQuill
                 value={editedAnswer}
-                onChange={(e) => setEditedAnswer(e.target.value)}
-              ></textarea>
+                onChange={(newContent) => setEditedAnswer(newContent)}
+                className="mb-5"
+              />
               <button
                 className="btn btn-info w-25 m-1 "
                 onClick={handleAnswerSaveClick}
@@ -142,7 +144,12 @@ const Answer = ({ questionAnswers, answerDate, userData, answerId }) => {
               </button>
             </>
           ) : (
-            <Card.Text>{questionAnswers}</Card.Text>
+            <Card.Text
+              className="mb-5"
+              dangerouslySetInnerHTML={{
+                __html: questionAnswers,
+              }}
+            ></Card.Text>
           )}
         </Card.Body>
       </Card>

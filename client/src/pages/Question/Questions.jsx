@@ -12,7 +12,6 @@ import "react-quill/dist/quill.snow.css";
 
 const Question = () => {
   const navigate = useNavigate();
-  const [textArea, setTextArea] = useState("");
   const [answers, setAnswers] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // State for login status
   const [questionData, setQuestionData] = useState({});
@@ -24,6 +23,7 @@ const Question = () => {
   const [isQuestionEditing, setIsQuestionEditing] = useState(false); // State for question editing
   const [editedQuestionTitle, setEditedQuestionTitle] = useState("");
   const [editedQuestionBody, setEditedQuestionBody] = useState("");
+  const [editorContent, setEditorContent] = useState("");
   const { performFetch: performCreateAnswer } = useFetch(
     "/answer/create",
     (res) => {
@@ -70,17 +70,17 @@ const Question = () => {
   }, [id, questionData.user_id, auth]);
 
   const handleSendAnswer = () => {
-    if (textArea) {
-      performCreateAnswer({
-        method: "POST",
-        body: JSON.stringify({
-          answer: {
-            answer: textArea,
-            question_id: id,
-          },
-        }),
-      });
-    }
+    performCreateAnswer({
+      method: "POST",
+      body: JSON.stringify({
+        answer: {
+          answer: editorContent,
+          question_id: id,
+        },
+      }),
+    });
+
+    setEditorContent("");
   };
 
   const handleDelete = () => {
@@ -222,24 +222,22 @@ const Question = () => {
       </Container>
       {isLoggedIn ? (
         <div className="form-outline mb-4">
-          <textarea
-            className="form-control"
-            id="textAreaExample6"
-            rows="5"
-            placeholder="Write your answer here..."
-            onChange={(e) => setTextArea(e.target.value)}
-          ></textarea>
-          <div className="d-flex flex-row-reverse gap-3 justify-content-between align-items-center mt-3">
-            <Button
-              variant="info"
-              size="sm"
-              onClick={() => {
-                handleSendAnswer();
-              }}
-            >
-              Send Answer
-            </Button>
-          </div>
+          <ReactQuill
+            theme="snow"
+            value={editorContent}
+            onChange={setEditorContent}
+            placeholder="Write your answer..."
+            className="mb-5"
+            style={styles}
+          />
+          <Button
+            size="sm"
+            onClick={() => {
+              handleSendAnswer();
+            }}
+          >
+            Send Answer
+          </Button>
         </div>
       ) : (
         <div className="alert alert-warning mt-3" role="alert">
