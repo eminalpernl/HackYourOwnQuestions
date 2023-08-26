@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import Profile from "./pages/Profile/Profile";
 import Admin from "./pages/admin-moderator/Admin";
 import Ask from "./pages/Ask/Ask";
+import Chatbot from "./pages/AskAi/Chatbot";
 import { useAuthContext } from "./hooks/useAuthContext";
 import PageNotFound from "./components/NotFoundedPage";
 
@@ -55,6 +56,7 @@ const App = () => {
             path="/ask"
             element={auth ? <Ask /> : <Navigate to="/login" />}
           />
+          <Route path="/ask-ai" element={<Chatbot />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>

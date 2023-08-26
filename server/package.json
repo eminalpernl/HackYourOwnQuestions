@@ -44,6 +44,7 @@
     "express-session": "^1.17.3",
     "mongodb-memory-server": "^8.0.3",
     "mongoose": "^6.0.13",
-    "nodemailer": "^6.9.3"
+    "nodemailer": "^6.9.3",
+    "openai": "^4.0.1"
   }
 }

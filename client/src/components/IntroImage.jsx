@@ -23,7 +23,7 @@ function IntroImage() {
                     <Link to="/admin" className="float-end">
                       <button
                         type="button"
-                        className="btn btn-warning btn-lg px-4 me-md-0 pl-4"
+                        className="btn btn-warning btn-lg px-4 me-md-2"
                       >
                         Admin Panel
                       </button>
@@ -37,6 +37,19 @@ function IntroImage() {
                       className="btn btn-dark btn-lg px-4 me-md-2"
                     >
                       Ask Question
+                    </button>
+                  </Link>
+                </div>
+                <div className="col">
+                  <Link to="/ask-ai" className="float-end">
+                    <button
+                      type="button"
+                      className="btn btn-primary btn-lg px-6 me-md-2"
+                    >
+                      Ask to{" "}
+                      <em>
+                        <strong>AI</strong>
+                      </em>
                     </button>
                   </Link>
                 </div>
